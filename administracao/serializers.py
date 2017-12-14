@@ -3,6 +3,7 @@ from administracao.models import ConfiguracaoGeral
 from administracao.models import Contato
 from administracao.models import Colaborador
 from administracao.models import Servico
+from administracao.models import ServicoPortfolio
 
 
 class ContatoSerializer(serializers.HyperlinkedModelSerializer):
@@ -26,4 +27,10 @@ class ServicoSerializer(serializers.HyperlinkedModelSerializer):
 class ConfiguracaoGeralSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ConfiguracaoGeral
+        fields = '__all__'
+
+
+class ServicoPortfolioSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ServicoPortfolio
         fields = '__all__'

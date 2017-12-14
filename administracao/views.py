@@ -5,10 +5,15 @@ from administracao.models import ConfiguracaoGeral
 from administracao.models import Contato
 from administracao.models import Colaborador
 from administracao.models import Servico
+from administracao.models import ServicoPortfolio
 from administracao.serializers import ContatoSerializer
 from administracao.serializers import ServicoSerializer
 from administracao.serializers import ColaboradorSerializer
 from administracao.serializers import ConfiguracaoGeralSerializer
+from administracao.serializers import ServicoPortfolioSerializer
+
+def index(request):
+    return render(request, 'index.html', {})
 
 
 class ContatoViewSet(viewsets.ModelViewSet):
@@ -29,3 +34,8 @@ class ServicoViewSet(viewsets.ModelViewSet):
 class ConfiguracaoGeralViewSet(viewsets.ModelViewSet):
     queryset = ConfiguracaoGeral.objects.all()
     serializer_class = ConfiguracaoGeralSerializer
+
+
+class ServicoPortfolioViewSet(viewsets.ModelViewSet):
+    queryset = ServicoPortfolio.objects.all()
+    serializer_class = ServicoPortfolioSerializer

@@ -6,13 +6,15 @@ from administracao.views import ContatoViewSet
 from administracao.views import ColaboradorViewSet
 from administracao.views import ConfiguracaoGeralViewSet
 from administracao.views import ServicoViewSet
-from front_end.views import index
+from administracao.views import ServicoPortfolioViewSet
+from administracao.views import index
 
 router = routers.DefaultRouter()
 router.register(r'configuracoes_gerais', ConfiguracaoGeralViewSet)
 router.register(r'contatos', ContatoViewSet)
 router.register(r'colaboradores', ColaboradorViewSet)
 router.register(r'servicos', ServicoViewSet)
+router.register(r'servicos_portfolio', ServicoPortfolioViewSet)
 
 urlpatterns = [
     url(r'^$', index),
