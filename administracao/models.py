@@ -24,18 +24,8 @@ class ConfiguracaoGeral(models.Model):
 	
 
 class Servico(models.Model):
-	foto = models.FileField()
+	foto = models.FileField(verbose_name="Imagem do Servico")
 	descricao = models.TextField(null=True, blank=True)
-
-
-class ConfiguracaoServico(models.Model):
-    
-	class Meta:
-		verbose_name_plural = 'Configurações Serviços'
-
-	titulo = models.CharField(max_length=40)
-	descricao = models.TextField(null=True, blank=True)
-	servicos = models.ManyToManyField(Servico)
 
     
 class Colaborador(models.Model):
@@ -45,18 +35,8 @@ class Colaborador(models.Model):
 
 	nome = models.CharField(max_length=40)
 	descricao = models.TextField(null=True, blank=True)
-	foto = models.FileField()
+	foto = models.FileField(verbose_name="Foto Colaborador")
 	ativo = models.BooleanField(default=False, verbose_name='Exibir este colaborador?')
-
-
-class ConfiguracaoColaborador(models.Model):
-	
-	class Meta:
-		verbose_name_plural = 'Configurações Colaboradores'
-
-	titulo = models.CharField(max_length=40)
-	descricao = models.TextField(null=True, blank=True)
-	colaboradores = models.ManyToManyField(Colaborador)
 
 
 class Contato(models.Model):
@@ -64,29 +44,11 @@ class Contato(models.Model):
 	telefone = models.CharField(max_length=20)
 	email = models.CharField(max_length=50)
 	mensagem = models.TextField()
-	visualizado = models.BooleanField(default=False)
+	visualizado = models.BooleanField(default=False, verbose_name="Contato ja efetuado")
 
 
-class ConfiguracaoContato(models.Model):
-    
-	class Meta:
-		verbose_name_plural = 'Configurações Textos em Contatos'
-
-	titulo = models.CharField(max_length=40)
-	descricao = models.TextField(null=True, blank=True)
-
-
-class Acontecimento(models.Model):
+class ServicoPortfolio(models.Model):
 	titulo = models.CharField(max_length=40)
 	descricao = models.TextField(null=True, blank=True)
 	foto = models.FileField()
-	ativo = models.BooleanField(default=False)
-
-
-class ConfiguracaoSobreNos(models.Model):
-	
-	class Meta:
-		verbose_name_plural = 'Configurações da area sobre nós'
-
-	titulo = models.CharField(max_length=40)
-	acontecimentos = models.ManyToManyField(Acontecimento)
+	ativo = models.BooleanField(default=False, verbose_name="Exibir este serviço?")
